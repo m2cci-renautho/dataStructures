@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 #include "linkedList_type.h"
+#include "sequence_type.h"
 #include "linkedList.h"
+#include "sequence.h"
 
 int main(){
 
