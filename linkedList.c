@@ -58,3 +58,36 @@ int getIndex(int x, Cel * T){
     return (AC == NULL)?-1:index;
 }
 
+void sortInsertion(Cel **T){
+    Cel *AP, *AC, *Q;
+    Q = *T;
+    if(Q != NULL && Q->next != NULL) //La liste comporte au moins deux éléments
+    {
+        AC = Q->next;
+        AP = *T;
+        while(AC != NULL){
+            if(AC->val < Q->val){ // Si l'élément courant est plus petit que son prédécesseur
+                if(AC->val < AP->val){  // Si l'élément courant est inférieur au premier élément
+                    Q->next = AC->next;
+                    AC->next = *T;
+                    *T = AC;
+                }
+                else{   //Sinon on recherche son prédécesseur
+
+                    while(AP->next != Q && AP->next->val < AC->val){
+                        AP = AP->next;
+                    }
+                    Q->next = AC->next;
+                    AC->next = AP->next;
+                    AP->next = AC;
+                }
+            }
+            else{
+                Q = Q->next;
+            }
+            AC = Q->next;
+        }
+        
+
+    }
+}

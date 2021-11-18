@@ -16,5 +16,10 @@ int main(){
 
     printLinkedList(T);
 
+    sortInsertion(&T);
+
+    printLinkedList(T);
+
+
     return 0;
 }
